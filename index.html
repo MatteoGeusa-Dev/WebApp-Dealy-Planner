@@ -2,86 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
     <title>Document</title>
-    <style>
-        .container{
-            padding: 15px;
-            border-radius: 10px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        #timedate{
-            min-width: 140px;
-            max-width: 140px;
-            text-align: left;
-            font-weight: bold;
-            color: white;
-            text-wrap: nowrap;  
-            max-height: 40px;
-            
-        }
-
-        .container h1{
-            margin: auto;
-            font-weight: bold;
-            color: #323232;
-        }
-
-        #mainconteiner{
-            display: inline-flex;
-            justify-content: space-between;
-            width: 95%;
-            height: 70px;
-            min-width:auto;
-            
-        }
-
-        #options{
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            display:inline;
-            justify-content: center;
-            min-width: 140px;
-            max-width: 140px;
-            text-align: left;
-            font-weight: bold;
-            color: black;
-            text-wrap: nowrap;  
-        }
-
-        #optionsss{
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            display:flex;
-            justify-content: center;
-            min-width: 140px;
-            max-width: 140px;
-            text-align: left;
-            font-weight: bold;
-            color: black;
-            text-wrap: nowrap;  
-        }
-
-        body {
-            display: flex;
-            justify-content: center;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            background-color: #e0e0e0;
-            margin: 20px;
-        }
-
-
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
 </head>
 <body onLoad="initClock()">
-    <div class="container" id="mainconteiner">
-        <div id="options">
+    <div class="container">
+        <div id="left">
             <a id="mon">January</a>
             <a id="d">1</a>
             <a id="y">0</a><br>
@@ -90,40 +18,18 @@
             <a id="s">00</a>
         </div>
         <h1>Daily Planner</h1>
-        <div id="optionsss">
+        <div id="right">
             <img src="assets/icons8-dark-96.png" >
         </div>
     </div>
+    <div>
+        <br>
+        <div class="content">
+            <div class="quickcalendar">
+                <span>Quick Notes</span>
+                <hr class="rounded">
+            </div>
+        </div>
+    </div>
 </body>
-<script>
-        // START CLOCK SCRIPT
-
-    Number.prototype.pad = function(n) {
-        for (var r = this.toString(); r.length < n; r = 0 + r);
-        return r;
-    };
-    
-    function updateClock() {
-        var now = new Date();
-        var sec = now.getSeconds(),
-        min = now.getMinutes(),
-        hou = now.getHours(),
-        mo = now.getMonth(),
-        dy = now.getDate(),
-        yr = now.getFullYear();
-        var months = ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"];
-        var tags = ["mon", "d", "y", "h", "m", "s"],
-        corr = [dy,months[mo], yr, hou.pad(2), min.pad(2), sec.pad(2)];
-        for (var i = 0; i < tags.length; i++)
-        document.getElementById(tags[i]).firstChild.nodeValue = corr[i];
-    }
-    
-    
-    function initClock() {
-        updateClock();
-        window.setInterval("updateClock()", 1);
-    }
-    
-    // END CLOCK SCRIPT
-</script>
 </html>
