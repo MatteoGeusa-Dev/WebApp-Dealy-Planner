@@ -25,4 +25,10 @@ function initClock() {
     window.setInterval(updateClock, 1000); // Chiamare updateClock ogni secondo (1000 millisecondi)
 }
 
+
+function addnotes(){
+    var btn = document.getElementById("addnotesbtn");
+    btn.style.color = "red";
+}
+
 // END CLOCK SCRIPT
